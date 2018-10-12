@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Netdata Dashboard</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <script>
+  var netdataTheme = 'white'; // or 'slate' for the dark one
+  var netdataPrepCallback = function() {
+    NETDATA.themes.mytheme = {
+
+           background: 'transparent',
+           foreground: 'transparent',
+           grid: 'rgba(255, 255, 255, 0.31)',
+           axis: 'rgba(255, 255, 255, 0.31)',
+           highlight: '#383838',
+           colors: [   '#66AA00', '#FE3912',   '#3366CC', '#D66300',   '#0099C6', '#DDDD00',
+                       '#5054e6', '#EE9911',   '#BB44CC', '#e45757',   '#ef0aef', '#CC7700',
+                       '#22AA99', '#109618',   '#905bfd', '#f54882',   '#4381bf', '#ff3737',
+                       '#329262', '#3B3EFF' ],
+           easypiechart_track: '#373b40',
+           easypiechart_scale: '#373b40',
+           gauge_pointer: '#474b50',
+           gauge_stroke: '#373b40',
+           gauge_gradient: false,
+           d3pie: {
+               title: '#C8C8C8',
+               subtitle: '#283236',
+               footer: '#283236',
+               other: '#283236',
+               mainlabel: '#C8C8C8',
+               percentage: '#dddddd',
+               value: '#cccc44',
+               tooltip_bg: '#272b30',
+               tooltip_fg: '#C8C8C8',
+               segment_stroke: "#283236",
+               gradient_color: '#000000'
+           }
+};
+
+// set it as the current one
+NETDATA.themes.current = NETDATA.themes.mytheme;
+NETDATA.options.current.stop_updates_when_focus_is_lost = false;
+  };
+  </script>
+
+	<!-- here we will add dashboard.js -->
+  <script type="text/javascript" src="http://localhost:19999/dashboard.js"></script>
+
+  <style>
+	/* Fixes to the theme to remove background color */
+body {background-color: transparent; color: #c8c8c8;}
+.netdata-legend-value {background-color: transparent;}
+.netdata-legend-toolbox {background-color: transparent;}
+.netdata-legend-toolbox-button {background-color: transparent;}
+.netdata-legend-resize-handler {background-color: transparent;}
+
+
+/* comment line below to restore current date on graph */
+.netdata-legend-title-date {color: transparent;}
+/* comment line below to restore current time on graphs */
+.netdata-legend-title-time {color: transparent;}
+
+/* To give more space to the legend, in order not to cuttoff when 3 series (PING)*/
+.netdata-legend-title-units {margin-top: -10px;}
+.netdata-legend-series {height: 45px;}
+.netdata-legend-series {margin-top: -10px;}
+
+</style>
+
+</head>
+<body>
+
+  <div data-netdata="system.ipv4"
+       data-title="Ipv4 Bandwidth"
+       data-show-value-of-received-at="en_in_value"
+       data-after="-100"
+       ></div>
+
+  <div data-netdata="fping.8_8_8_8_latency"
+       data-title="Google DNS Ping"
+       data-after="-100"
+       ></div>
+
+  <div data-netdata="system.io"
+       data-title="I/O"
+       data-common-max="io"
+       data-common-min="io"
+       data-chart-library="dygraph"
+       data-after="-100"
+       ></div>
+
+  <div data-netdata="system.cpu"
+       data-title="CPU usage"
+       data-chart-library="dygraph"
+       data-after="-100"
+       data-dygraph-valuerange="[0, 100]"
+       ></div>
+
+</body>
+</html>
