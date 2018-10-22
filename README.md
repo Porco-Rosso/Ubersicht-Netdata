@@ -10,7 +10,7 @@ Features out of the box:
 - Ping time graph (with additional install of fping plugin)
 
 Additional Features with configuration:
-- Any data accessible from [http://localhost:19999/dashboard.js](http://localhost:19999/dashboard.js)
+- Any data accessible from [http://localhost:19999/](http://localhost:19999/)
 - Any of the other graph styles provided by Netdata
 
 
