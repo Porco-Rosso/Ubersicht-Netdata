@@ -23,6 +23,7 @@ Optional:
 
 3. With homebrew install fping: `brew install fping`
 4. Edit `fping.conf` with `nano /usr/local/etc/netdata/fping.conf` to indicate what hosts to ping (8.8.8.8 is google DNS)
+- `hosts="8.8.8.8"`
 
 ![Demo Screenshot](full-screenshot.png)
 
